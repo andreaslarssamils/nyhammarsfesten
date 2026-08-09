@@ -78,11 +78,14 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    // Sajten är svensk oavsett miljö — defaulten ska inte hänga på att någon
+    // kommer ihåg APP_LOCALE i produktions-.env. Fallbacken står kvar på 'en'
+    // så att regler som saknas i lang/sv/ ger läsbar engelska, inte råa nycklar.
+    'locale' => env('APP_LOCALE', 'sv'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'sv_SE'),
 
     /*
     |--------------------------------------------------------------------------

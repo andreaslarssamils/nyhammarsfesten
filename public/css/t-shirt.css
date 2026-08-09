@@ -1,0 +1,201 @@
+/* ============================================================
+   T-SHIRT, KVITTOSIDA OCH ADMIN
+   Egen fil så att prototypens styles.css kan ligga orörd.
+   Samma variabler, samma 3px ink-ramar och hårda skuggor.
+   ============================================================ */
+
+/* ============ T-SHIRTSEKTION ============ */
+/* Ligger mellan biljetter (navy) och hitta hit (navy-deep) — creme håller
+   sektionsrytmen mörk/ljus/mörk genom hela sidan. */
+.tshirt { background: var(--cream); color: var(--navy); }
+.tshirt .wrap { max-width: 780px; display: flex; flex-direction: column; gap: 28px; }
+
+.tshirt-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.tshirt-price {
+    background: var(--gold); color: var(--navy);
+    font-weight: 900; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 7px 14px; transform: rotate(-2deg); white-space: nowrap;
+}
+.tshirt-lead { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.55; max-width: 560px; }
+.tshirt-deadline { font-weight: 900; color: var(--terracotta); }
+
+/* Stängd förhandsbokning */
+.tshirt-closed {
+    margin: 0; padding: 26px 24px;
+    border: 3px dashed var(--navy-40); background: transparent;
+    font-size: 16px; font-weight: 700; line-height: 1.55;
+}
+
+/* ============ MEDDELANDEN ============ */
+.notis {
+    margin: 0; padding: 16px 20px;
+    border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+    font-size: 15px; font-weight: 700; line-height: 1.5;
+}
+.notis-ok { background: var(--gold); color: var(--navy); }
+.notis-fel { background: var(--terracotta); color: var(--cream); }
+.notis-fel ul { margin: 0; padding-left: 20px; }
+.notis-fel li + li { margin-top: 4px; }
+
+/* ============ FORMULÄR ============ */
+.shirt-form {
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--gold);
+    background: var(--cream); padding: 32px 30px;
+}
+.falt { display: flex; flex-direction: column; gap: 7px; }
+.falt-bred { grid-column: 1 / -1; }
+
+.falt label {
+    font-weight: 900; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--terracotta);
+}
+.falt .hint { font-weight: 500; letter-spacing: 0.5px; text-transform: none; color: var(--navy-75); }
+
+.falt input,
+.falt select,
+.falt textarea {
+    font-family: 'Archivo', sans-serif;
+    /* 16px hindrar iOS från att zooma in vid fokus */
+    font-size: 16px; font-weight: 500; color: var(--navy);
+    background: var(--cream); border: 3px solid var(--ink); border-radius: 0;
+    padding: 12px 14px; width: 100%;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+.falt textarea { resize: vertical; min-height: 88px; line-height: 1.5; }
+.falt select { appearance: none; cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, var(--terracotta) 50%),
+    linear-gradient(135deg, var(--terracotta) 50%, transparent 50%);
+    background-position: calc(100% - 20px) 22px, calc(100% - 14px) 22px;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+}
+.falt input:focus,
+.falt select:focus,
+.falt textarea:focus {
+    outline: none;
+    box-shadow: 4px 4px 0 var(--gold);
+    transform: translate(-1px, -1px);
+}
+.falt input[aria-invalid="true"],
+.falt select[aria-invalid="true"],
+.falt textarea[aria-invalid="true"] { box-shadow: 4px 4px 0 var(--terracotta); }
+
+/* Honungsfällan — dold för människor, ifylld av bottar */
+.honung { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ============ FÄRGVAL ============ */
+/* Radiogruppen har ingen enskild kontroll att peka på, så rubriken är ett
+   <span> och inte ett <label>. Den ska ändå se ut som fältnamnen omkring. */
+.falt-rubrik {
+    font-weight: 900; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--terracotta);
+}
+
+.fargval { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Radioknappen döljs visuellt men måste vara kvar för tangentbord och
+   skärmläsare. Egen regel i stället för .sr-only: den klassen har lägre
+   specificitet än .falt input ovan, så knappen skulle bli 100% bred, få ram
+   och padding — och därmed både fånga klick och ge sidan horisontell scroll. */
+.falt .fargval input {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; border: 0;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Färgprovens egna <label> ska inte ärva versalstilen från .falt label */
+.falt .fargprov {
+    /* flex-basis 0 i stället för en pixelbasis: med exakt två alternativ ska
+       de dela bredden lika och stanna sida vid sida även på smal mobil. */
+    flex: 1 1 0; min-width: 0; max-width: 260px;
+    display: flex; flex-direction: column;
+    border: 3px solid var(--ink); background: var(--cream);
+    cursor: pointer;
+    font-weight: 700; font-size: 14px; letter-spacing: 0.5px; text-transform: none;
+    color: var(--navy);
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+/* Kvadratiskt utsnitt med fokus strax ovanför mitten. Fotona är tagna med
+   olika beskärning — vita tröjan är kapad nedtill i källfilen, svarta har luft
+   under sig. Genom att lägga snittet över nederkanten på båda hamnar hals,
+   axlar och tryck i bild, och proverna läser som ett par. */
+.fargprov-bild {
+    display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
+    object-fit: cover; object-position: center 28%;
+    border-bottom: 3px solid var(--ink);
+    background: #FFFFFF;
+}
+.fargprov-namn { padding: 10px 12px; text-align: center; }
+
+.fargval input:checked + .fargprov { box-shadow: 4px 4px 0 var(--gold); transform: translate(-1px, -1px); }
+.fargval input:checked + .fargprov .fargprov-namn { background: var(--gold); font-weight: 900; }
+
+/* Radioknappen är visuellt dold men fortfarande fokuserbar — utan den här
+   regeln får den som tabbar sig fram ingen synlig markering alls. */
+.fargval input:focus-visible + .fargprov { outline: 3px solid var(--terracotta); outline-offset: 3px; }
+
+.shirt-submit {
+    grid-column: 1 / -1; justify-self: start;
+    background: var(--terracotta); color: var(--cream);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 15px 30px; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+    cursor: pointer; transition: all 0.15s;
+}
+.shirt-submit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); background: var(--terracotta-bright); color: var(--ink); }
+.shirt-submit:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+.shirt-fine { grid-column: 1 / -1; margin: 0; font-size: 13px; font-weight: 500; line-height: 1.55; color: var(--navy-75); }
+
+/* ============ KVITTOSIDA ============ */
+.tack { background: var(--navy); color: var(--cream); min-height: 100vh; display: flex; align-items: center; }
+.tack .wrap { max-width: 720px; display: flex; flex-direction: column; gap: 24px; }
+.tack .h2 { color: var(--olive); }
+.tack p { margin: 0; font-size: 17px; line-height: 1.6; }
+
+.tack-kvitto {
+    border: 3px solid var(--ink); background: var(--navy-deep);
+    box-shadow: 6px 6px 0 var(--gold); padding: 30px 28px;
+    display: flex; flex-direction: column; gap: 12px;
+}
+.tack-ref { font-family: 'Anton', sans-serif; font-size: clamp(32px, 6vw, 52px); line-height: 1; color: var(--gold); }
+.tack-rad { display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; font-size: 15px; font-weight: 700; border-top: 2px dashed var(--cream-30); padding-top: 12px; }
+.tack-rad span:last-child { color: var(--cream-70); }
+
+.tack-swish { background: var(--gold); color: var(--navy); border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); padding: 22px 24px; }
+.tack-swish strong { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 1px; display: inline-block; }
+
+.tack-tillbaka {
+    align-self: flex-start;
+    font-weight: 900; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    border-bottom: 3px solid var(--gold); padding-bottom: 3px;
+}
+
+/* ============ ADMIN ============ */
+.admin { background: var(--cream); color: var(--navy); min-height: 100vh; padding: 56px 24px; }
+.admin .wrap { max-width: 1100px; display: flex; flex-direction: column; gap: 40px; }
+.admin h1 { font-family: 'Bagel Fat One', system-ui, sans-serif; font-weight: 400; margin: 0; font-size: clamp(30px, 5vw, 48px); }
+.admin h2 { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; margin: 0 0 14px; font-size: 22px; color: var(--terracotta); }
+.admin-tabell { width: 100%; border-collapse: collapse; font-size: 14px; }
+.admin-tabell th {
+    text-align: left; font-weight: 900; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    border-bottom: 3px solid var(--ink); padding: 10px 12px;
+}
+.admin-tabell td { padding: 10px 12px; border-bottom: 2px dashed var(--navy-40); vertical-align: top; }
+.admin-tabell tfoot td { border-bottom: none; border-top: 3px solid var(--ink); font-weight: 900; }
+.admin-tabell .obetald { color: var(--terracotta); font-weight: 900; }
+.admin-svep { overflow-x: auto; }
+
+/* ============ MOBIL ============ */
+@media (max-width: 700px) {
+    .shirt-form { grid-template-columns: 1fr; padding: 24px 20px; gap: 18px; }
+    /* Utan taket ryms båda proverna bredvid varandra hela vägen ner till 320px */
+    .falt .fargprov { max-width: none; }
+    .shirt-submit { justify-self: stretch; text-align: center; }
+    .tack { min-height: 0; padding: 56px 18px; }
+    .tack-kvitto { padding: 24px 20px; }
+    .admin { padding: 40px 16px; }
+}

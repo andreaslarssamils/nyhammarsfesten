@@ -1,0 +1,13 @@
+<x-layout>
+    @include('partials.nav')
+    @include('partials.hero')
+    @include('partials.ticker')
+    @include('partials.artister')
+    @include('partials.program')
+    @include('partials.biljetter')
+    @include('shirts._form')
+    @include('partials.hitta')
+    @include('partials.faq')
+    @include('partials.sponsorer')
+    @include('partials.footer')
+</x-layout>
