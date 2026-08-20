@@ -39,16 +39,17 @@ return [
      | Optimera med: cwebp -q 80 -resize 600 0 in.jpg -o public/assets/bandnamn.webp
      */
     'lineup' => [
-        ['name' => 'Konstcyklist Erik Ivarsson', 'meta' => '',    'size' => 1, 'color' => 'gold',  'bild' => null],
-        ['name' => 'Trashcan Band',              'meta' => '',    'size' => 2, 'color' => 'olive', 'bild' => null],
-        ['name' => 'Walls Of Glass',             'meta' => '', 'size' => 2, 'color' => null,    'bild' => null],
-        ['name' => 'FINALLY',                    'meta' => '', 'size' => 3, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Konstcyklist Erik Ivarsson', 'meta' => 'Grangärde',    'size' => 1, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Trashcan Band',              'meta' => 'Ludvika',    'size' => 2, 'color' => 'olive', 'bild' => null],
+        ['name' => 'Walls Of Glass',             'meta' => 'Nyhammar', 'size' => 2, 'color' => null,    'bild' => null],
+        ['name' => 'FINALLY',                    'meta' => 'Sala', 'size' => 3, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Dödens Gudbarn',              'meta' => 'Ludvika', 'size' => 3, 'color' => 'gold',  'bild' => null],
         ['name' => 'Mattias Bredenberg Hellre Bipolär Än Populär',
             'meta' => '', 'size' => 4, 'color' => 'olive', 'bild' => null],
-        ['name' => 'SpedUp',                        'meta' => '', 'size' => 4, 'color' => null,    'bild' => null],
-        ['name' => 'Khar',                        'meta' => '', 'size' => 4, 'color' => 'olive',  'bild' => null],
-        ['name' => 'PJ Myers',                        'meta' => '', 'size' => 2, 'color' => 'gold',  'bild' => null],
-        ['name' => 'Finally',                        'meta' => '', 'size' => 1, 'color' => 'olive',  'bild' => null],
+        ['name' => 'Sped Up',                        'meta' => 'Sala', 'size' => 4, 'color' => null,    'bild' => null],
+        ['name' => 'Khar',                        'meta' => 'Sala', 'size' => 4, 'color' => 'olive',  'bild' => null],
+        ['name' => 'PJ Myers',                        'meta' => 'Australien/Ludvika', 'size' => 2, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Finally',                        'meta' => 'Sala', 'size' => 1, 'color' => 'olive',  'bild' => null],
     ],
 
     /*
