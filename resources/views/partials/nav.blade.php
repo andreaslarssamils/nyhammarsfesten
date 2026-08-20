@@ -9,7 +9,7 @@
     <a href="#hitta">Hitta hit</a>
     <a href="#faq">FAQ</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="#biljetter" class="nav-cta-mobile">26 sept ✶ 100 kr</a>
+    <x-forkop class="nav-cta-mobile" label="26 sept ✶ Förköp" fallback="#biljetter" />
   </div>
-  <a href="#biljetter" class="nav-cta">26 sept ✶ 100 kr</a>
+  <x-forkop class="nav-cta" label="26 sept ✶ Förköp" fallback="#biljetter" />
 </nav>

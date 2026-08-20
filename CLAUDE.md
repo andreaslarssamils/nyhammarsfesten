@@ -55,10 +55,25 @@ Några fält styr beteende, inte bara text:
 
 - `date` (ISO 8601 med tidszon) matas till `#countdown[data-target]` och driver
   nedräkningen i `site.js`.
+- `tickets.forkop_url` är förköpslänken till Billetto och renderas av komponenten
+  `<x-forkop>` på tre ställen: nav-CTA:n, hero och biljettsektionen. Tom eller `'#'`
+  (samma platshållarkonvention som `contact.facebook`) **döljer knappen** — nav och
+  hero faller tillbaka på ankaret `#biljetter`, biljettsektionen ritar inget alls.
+  Flaggan tar bara bort *länken*: `tickets.info`, FAQ-svaret "Vad kostar det?" och de
+  hårdkodade etiketterna i `nav.blade.php` och `hero.blade.php` säger fortfarande
+  "Förköp" och måste redigeras för hand, annars uppmanar sidan till ett förköp som
+  inte går att nå. `ForkopTest` täcker båda lägena.
 - `shirt.deadline` avgör om bokningen är öppen (se nedan).
 - `shirt.payment` (`prepay` / `on_pickup`) växlar texten i både formuläret och tacksidan.
 - `lineup[].size` (1–4) och `lineup[].color` samt `program[].stage_class`
   (`null` / `alt` / `hot`) mappar till CSS-klasser.
+- `lineup[].bild` är valfri (`null` eller nyckeln utelämnad = ingen bild) och pekar
+  på en fil under `public/`, t.ex. `assets/bandnamn.webp`. Bilden renderas som
+  kvadratisk miniatyr i artistraden och ärver `size-1…4`, så `width: 1em` skalar den
+  med typskalan — en bild, ingen ny CSS per band. Originalen läggs i
+  `storage/app/private/band-original/` (gitignorerat via `storage/app/private/.gitignore`)
+  och optimeras med samma `cwebp`-rad som tröjbilderna. `LineupTest` kontrollerar att
+  varje angiven bildfil finns.
 - `shirt.colors` är nästlad: `['label' => 'Svart', 'bild' => 'assets/svart-nf.webp']`.
   Bilden visas som färgprov i bokningsformuläret. En ny färg behöver alltså både
   etikett och bildfil — inget mer, ingen ny CSS. `ShirtOrderTest` kontrollerar att

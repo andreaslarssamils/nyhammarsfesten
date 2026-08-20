@@ -11,5 +11,6 @@
       @endforeach
     </div>
     <p class="ticket-info">{{ config('festival.tickets.info') }}</p>
+    <x-forkop class="biljett-cta" label="Förköp på Billetto ✶" />
   </div>
 </section>

@@ -18,9 +18,8 @@ return [
 
     'contact' => [
         'email'     => 'info@nyhammarsfesten.se',
-        'phone'     => '070-123 45 67',
-        'phone_tel' => '+46701234567',
-        'sponsor'   => 'brippen@hotmail.com',
+        'phone'     => '070-213 13 72',
+        'sponsor'   => 'info@nyhammarsfesten.se',
         'facebook'  => '#',
         'instagram' => '#',
     ],
@@ -32,15 +31,24 @@ return [
      | Lineup — driver artistsektionen
      |--------------------------------------------------------------------------
      | size: 1–4 (1 = störst, huvudakt).  color: null, 'gold' eller 'olive'.
+     |
+     | bild: valfri sökväg under public/, t.ex. 'assets/bandnamn.webp'. null — eller
+     | ingen nyckel alls — ger raden utan bild, precis som förut. Bilden visas som
+     | kvadratisk miniatyr och skalas med size, så beskär motivet kvadratiskt.
+     | Filnamn i gemener utan å/ä/ö: driften är Linux och skiftlägeskänslig.
+     | Optimera med: cwebp -q 80 -resize 600 0 in.jpg -o public/assets/bandnamn.webp
      */
     'lineup' => [
-        ['name' => 'TBA', 'meta' => 'TBA', 'size' => 1, 'color' => 'gold'],
-        ['name' => 'TBA', 'meta' => 'TBA', 'size' => 2, 'color' => 'olive'],
-        ['name' => 'TBA', 'meta' => 'TBA', 'size' => 2, 'color' => null],
-        ['name' => 'TBA', 'meta' => 'TBA', 'size' => 3, 'color' => 'gold'],
-        ['name' => 'TBA', 'meta' => 'TBA', 'size' => 3, 'color' => 'olive'],
-        ['name' => 'TBA', 'meta' => 'TBA', 'size' => 4, 'color' => null],
-        ['name' => 'TBA', 'meta' => 'TBA', 'size' => 4, 'color' => 'gold'],
+        ['name' => 'Konstcyklist Erik Ivarsson', 'meta' => '',    'size' => 1, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Trashcan Band',              'meta' => '',    'size' => 2, 'color' => 'olive', 'bild' => null],
+        ['name' => 'Walls Of Glass',             'meta' => '', 'size' => 2, 'color' => null,    'bild' => null],
+        ['name' => 'FINALLY',                    'meta' => '', 'size' => 3, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Mattias Bredenberg Hellre Bipolär Än Populär',
+            'meta' => '', 'size' => 4, 'color' => 'olive', 'bild' => null],
+        ['name' => 'SpedUp',                        'meta' => '', 'size' => 4, 'color' => null,    'bild' => null],
+        ['name' => 'Khar',                        'meta' => '', 'size' => 4, 'color' => 'olive',  'bild' => null],
+        ['name' => 'PJ Myers',                        'meta' => '', 'size' => 2, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Finally',                        'meta' => '', 'size' => 1, 'color' => 'olive',  'bild' => null],
     ],
 
     /*
@@ -51,23 +59,30 @@ return [
     'program_lead' => 'Lördag 26 september — från lunch till midnatt.',
 
     'program' => [
-        ['time' => '12:00', 'act' => 'Portarna öppnas',             'stage' => 'Området',      'stage_class' => null],
-        ['time' => '12:30', 'act' => 'TBA',                         'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '13:30', 'act' => 'TBA — familjeshow',           'stage' => 'Lilla scenen', 'stage_class' => 'alt'],
-        ['time' => '15:00', 'act' => 'TBA',                         'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '16:30', 'act' => 'TBA',                         'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '18:00', 'act' => 'TBA',                         'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '20:00', 'act' => 'TBA',                         'stage' => 'Lilla scenen', 'stage_class' => 'alt'],
-        ['time' => '21:30', 'act' => 'TBA ✶ huvudakt',              'stage' => 'Stora scenen', 'stage_class' => 'hot'],
-        ['time' => '23:00', 'act' => 'Tack och godnatt, Nyhammar!', 'stage' => null,           'stage_class' => null],
+        ['time' => '12:00', 'act' => 'Portarna öppnas', 'stage' => 'Området',      'stage_class' => null],
+        ['time' => '13:00', 'act' => 'Mattias Bredenberg, Hellre bipolär än popluär', 'stage' => 'Lilla scenen', 'stage_class' => 'alt'],
+        ['time' => '16:00', 'act' => 'Konstcyklist Erik Ivarsson', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
+        ['time' => '17:00', 'act' => 'PJ Myers', 'stage' => 'Stora scenen', 'stage_class' => null],
+        ['time' => '18:15', 'act' => 'SpedUp', 'stage' => 'Stora scenen', 'stage_class' => null],
+        ['time' => '19:30', 'act' => 'Walls Of Glass', 'stage' => 'Stora scenen', 'stage_class' => null],
+        ['time' => '21:00', 'act' => 'Khar', 'stage' => 'Stora scenen', 'stage_class' => 'alt'],
+        ['time' => '22:30', 'act' => 'Trashcan Band', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
+        ['time' => '24:00', 'act' => 'Dödens Gudbarn', 'stage' => 'Stora scenen', 'stage_class' => null],
+        ['time' => '01:30', 'act' => 'Finally', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
     ],
 
     'tickets' => [
-        'items' => [
+        'items'      => [
             ['label' => 'Vuxen',             'price' => '100 kr', 'note' => 'Hela dagen, alla scener.', 'variant' => 'dark'],
             ['label' => 'Ungdom — under 18', 'price' => 'Gratis', 'note' => 'Ta med hela klassen!',     'variant' => 'light'],
         ],
-        'info' => 'Inga förbokningar behövs — betala i entrén med Swish eller kontanter. Portarna öppnar 12:00.',
+        'info'       => 'Förköp din biljett på Billetto — eller betala i entrén med Swish eller kontanter. Portarna öppnar 12:00.',
+
+        // Förköp hos Billetto. '#' eller null döljer knappen i nav, hero och biljettsektionen
+        // (samma platshållarkonvention som contact.facebook) — nav och hero faller då tillbaka
+        // på ankaret #biljetter. Obs: 'info' ovan och FAQ-svaret nedan nämner Billetto i
+        // löptext, så de måste redigeras för hand om förköpet upphör.
+        'forkop_url' => 'https://billetto.se/e/nyhammarsfesten-musik-i-obygden-biljetter-1983011',
     ],
 
     'travel' => [
@@ -77,7 +92,7 @@ return [
     ],
 
     'faq' => [
-        ['q' => 'Vad kostar det?',                     'a' => '100 kr för vuxna, gratis för alla under 18. Betala i entrén med Swish eller kontanter — inga förbokningar behövs.'],
+        ['q' => 'Vad kostar det?',                     'a' => '100 kr för vuxna, gratis för alla under 18. Förköp på Billetto eller betala i entrén med Swish eller kontanter.'],
         ['q' => 'Finns det mat och dryck?',            'a' => 'Ja! Food truck.'],
         ['q' => 'Vad händer om det regnar?',           'a' => 'Festivalen körs oavsett väder för det är inomhus, så lite regn är inget problem.'],
         ['q' => 'Får jag ta med hunden?',              'a' => 'Kopplade hundar är välkomna på området, men tänk på att det kan bli högt ljud nära scenerna.'],
@@ -105,7 +120,6 @@ return [
 
         'models' => [
             'unisex' => 'Unisex',
-            'dam'    => 'Dam',
             'barn'   => 'Barn',
         ],
 

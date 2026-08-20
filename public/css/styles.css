@@ -128,6 +128,14 @@ a:hover { color: var(--gold); }
 }
 .sticker .s1, .sticker .s3 { font-weight: 900; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
 .sticker .s2 { font-family: 'Anton', sans-serif; font-size: 44px; line-height: 1; }
+.hero-cta {
+    /* .hero-inner har bara gap: 10px — knappen behöver egen luft mot ingressen */
+    margin-top: 26px;
+    background: var(--terracotta-bright); color: var(--ink);
+    font-weight: 900; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 15px 30px; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); transition: all 0.15s;
+}
+.hero-cta:hover { background: var(--gold); color: var(--ink); transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
 .countdown { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 44px; animation: floatIn 0.7s 0.2s ease-out both; }
 .count-chip {
     background: var(--navy-deep); color: var(--cream);
@@ -197,7 +205,8 @@ section, footer { scroll-margin-top: 132px; }
 .lineup-head { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
 .lineup-stars { color: var(--gold); font-size: 22px; }
 .act {
-    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    --act-gap: 16px;
+    display: flex; align-items: baseline; gap: var(--act-gap); flex-wrap: wrap;
     border-bottom: 2px dashed var(--cream-30); padding: 14px 0;
     transition: transform 0.15s;
 }
@@ -206,7 +215,27 @@ section, footer { scroll-margin-top: 132px; }
 .act:hover .act-name { color: var(--gold); }
 .act:nth-child(odd):hover { transform: rotate(-0.5deg); }
 .act:nth-child(even):hover { transform: rotate(0.5deg); }
-.act-name { font-family: 'Anton', sans-serif; text-transform: uppercase; line-height: 1; transition: color 0.15s; }
+/* break-word slår bara till när ordet ändå inte får plats — annars oförändrat. Utan
+   den spiller ett långt bandnamn ut över skärmkanten på smal mobil, särskilt när en
+   bild tar av bredden. (break-word, inte anywhere: anywhere ändrar min-content och
+   därmed hur flexraden bryts.) */
+.act-name {
+    font-family: 'Anton', sans-serif; text-transform: uppercase; line-height: 1;
+    overflow-wrap: break-word; transition: color 0.15s;
+}
+/* Bilden bär samma size-1…4 som namnet, så 1em plockar upp typskalans clamp() och
+   miniatyren växer med akten — huvudakten störst. align-self behövs eftersom raden
+   är baseline-justerad: annars hänger bilden på sin underkant mot versalhöjden. */
+.act-bild {
+    width: 1em; height: 1em; object-fit: cover; align-self: center; flex-shrink: 0;
+    border: 2px solid var(--cream-30); transition: border-color 0.15s;
+}
+.act:hover .act-bild { border-color: var(--gold); }
+/* Utan taket hoppar ett långt namn ner under bilden: flex-wrap bryter raden efter
+   items naturliga bredd, inte efter hur smalt de kan krympas. 1em är bildens bredd
+   (samma size-klass ⇒ samma font-size) och --act-gap radens gap, som krymper i
+   mobilbrytpunkten — därför variabeln i stället för 16px rakt av. */
+.act-bild + .act-name { max-width: calc(100% - 1em - var(--act-gap)); }
 .act-meta { font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-left: auto; color: var(--cream-70); }
 .size-1 { font-size: clamp(48px, 8vw, 96px); } .size-2 { font-size: clamp(36px, 6vw, 68px); }
 .size-3 { font-size: clamp(32px, 5vw, 56px); } .size-4 { font-size: clamp(28px, 4.5vw, 48px); }
@@ -243,6 +272,14 @@ section, footer { scroll-margin-top: 132px; }
 .ticket .t-price { font-family: 'Anton', sans-serif; font-size: 80px; line-height: 1; }
 .ticket .t-note { font-size: 15px; font-weight: 500; }
 .ticket-info { margin: 0; font-size: 16px; font-weight: 700; max-width: 620px; }
+.biljett-cta {
+    /* .biljetter .wrap centrerar inte, så utan align-self sträcks knappen till full bredd */
+    align-self: start;
+    background: var(--terracotta-bright); color: var(--ink);
+    font-weight: 900; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 15px 30px; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); transition: all 0.15s;
+}
+.biljett-cta:hover { background: var(--gold); color: var(--ink); transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
 
 /* Hitta hit */
 .hitta { background: var(--navy-deep); color: var(--cream); }
@@ -360,7 +397,7 @@ section, footer { scroll-margin-top: 132px; }
     .count-chip b { font-size: 30px; }
     .count-chip span { font-size: 10px; letter-spacing: 1.5px; }
     .ticker-track span { font-size: 16px; }
-    .act { gap: 6px; padding: 16px 0; }
+    .act { --act-gap: 6px; padding: 16px 0; }
     .act-meta { margin-left: 0; width: 100%; }
     .prow { gap: 8px; }
     .ptime { min-width: 64px; font-size: 22px; }

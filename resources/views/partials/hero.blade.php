@@ -29,6 +29,8 @@
       <span class="s2">{{ $label['datum'] }}</span>
       <span class="s3">{{ $label['manad'] }}</span>
     </div>
+
+    <x-forkop class="hero-cta" label="Förköp biljett ✶" fallback="#biljetter" />
   </div>
 
   <div class="countdown" id="countdown" data-target="{{ config('festival.date') }}">
