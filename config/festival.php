@@ -43,7 +43,7 @@ return [
         ['name' => 'Trashcan Band',              'meta' => 'Borlänge/Falun',    'size' => 2, 'color' => 'olive', 'bild' => null],
         ['name' => 'Walls Of Glass',             'meta' => 'Nyhammar', 'size' => 2, 'color' => null,    'bild' => null],
         ['name' => 'FINALLY',                    'meta' => 'Sala', 'size' => 3, 'color' => 'gold',  'bild' => null],
-        ['name' => 'Ritzy Rock',                    'meta' => '', 'size' => 3, 'color' => null,  'bild' => null],
+        ['name' => 'Ritzy Rock',                    'meta' => 'Avesta', 'size' => 3, 'color' => null,  'bild' => null],
         ['name' => 'Dödens Gudbarn',              'meta' => 'Ludvika', 'size' => 3, 'color' => 'gold',  'bild' => null],
         ['name' => 'Mattias Bredenberg Hellre Bipolär Än Populär',
             'meta' => '', 'size' => 4, 'color' => 'olive', 'bild' => null],
