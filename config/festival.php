@@ -40,16 +40,17 @@ return [
      */
     'lineup' => [
         ['name' => 'Konstcyklist Erik Ivarsson', 'meta' => 'Grangärde',    'size' => 1, 'color' => 'gold',  'bild' => null],
-        ['name' => 'Trashcan Band',              'meta' => 'Ludvika',    'size' => 2, 'color' => 'olive', 'bild' => null],
+        ['name' => 'Trashcan Band',              'meta' => 'Borlänge/Falun',    'size' => 2, 'color' => 'olive', 'bild' => null],
         ['name' => 'Walls Of Glass',             'meta' => 'Nyhammar', 'size' => 2, 'color' => null,    'bild' => null],
         ['name' => 'FINALLY',                    'meta' => 'Sala', 'size' => 3, 'color' => 'gold',  'bild' => null],
+        ['name' => 'Ritzy Rock',                    'meta' => '', 'size' => 3, 'color' => null,  'bild' => null],
         ['name' => 'Dödens Gudbarn',              'meta' => 'Ludvika', 'size' => 3, 'color' => 'gold',  'bild' => null],
         ['name' => 'Mattias Bredenberg Hellre Bipolär Än Populär',
             'meta' => '', 'size' => 4, 'color' => 'olive', 'bild' => null],
-        ['name' => 'Sped Up',                        'meta' => 'Sala', 'size' => 4, 'color' => null,    'bild' => null],
+        ['name' => 'Sped Up',                        'meta' => 'Borlänge', 'size' => 4, 'color' => null,    'bild' => null],
         ['name' => 'Khar',                        'meta' => 'Sala', 'size' => 4, 'color' => 'olive',  'bild' => null],
         ['name' => 'PJ Myers',                        'meta' => 'Australien/Ludvika', 'size' => 2, 'color' => 'gold',  'bild' => null],
-        ['name' => 'Finally',                        'meta' => 'Sala', 'size' => 1, 'color' => 'olive',  'bild' => null],
+        ['name' => 'Finally',                        'meta' => 'Sala', 'size' => 1, 'color' => null,  'bild' => null],
     ],
 
     /*
@@ -64,12 +65,13 @@ return [
         ['time' => '13:00', 'act' => 'Mattias Bredenberg, Hellre bipolär än popluär', 'stage' => 'Lilla scenen', 'stage_class' => 'alt'],
         ['time' => '16:00', 'act' => 'Konstcyklist Erik Ivarsson', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
         ['time' => '17:00', 'act' => 'PJ Myers', 'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '18:15', 'act' => 'SpedUp', 'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '19:30', 'act' => 'Walls Of Glass', 'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '21:00', 'act' => 'Khar', 'stage' => 'Stora scenen', 'stage_class' => 'alt'],
+        ['time' => '18:00', 'act' => 'SpedUp', 'stage' => 'Stora scenen', 'stage_class' => null],
+        ['time' => '18:00', 'act' => 'Ritzy Rock', 'stage' => 'Stora scenen', 'stage_class' => 'alt'],
+        ['time' => '20:00', 'act' => 'Walls Of Glass', 'stage' => 'Stora scenen', 'stage_class' => null],
+        ['time' => '21:15', 'act' => 'Finally', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
         ['time' => '22:30', 'act' => 'Trashcan Band', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
-        ['time' => '24:00', 'act' => 'Dödens Gudbarn', 'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '01:30', 'act' => 'Finally', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
+        ['time' => '23:45', 'act' => 'Dödens Gudbarn', 'stage' => 'Stora scenen', 'stage_class' => null],
+        ['time' => '01:00', 'act' => 'Khar', 'stage' => 'Stora scenen', 'stage_class' => 'alt'],
     ],
 
     'tickets' => [
