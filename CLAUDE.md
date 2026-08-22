@@ -133,8 +133,14 @@ ogenomskinlig, eftersom iOS rundar hörnen själv.
 Skriptet körs lokalt, aldrig i drift: `.ico` och `.png` ligger i git och `deploy.sh`
 hämtar dem med koden. Ändrar du en SVG måste du alltså köra om skriptet och
 committa resultatet — `FaviconTest` kontrollerar att layoutens länkar pekar på
-filer som finns och att .ico:n har en giltig rubrik, inte att den är i synk med
-källan.
+filer som finns, att SVG-källorna är välformad XML och att .ico:n har en giltig
+rubrik, men inte att den är i synk med källan.
+
+XML-kontrollen finns för att webbläsaren läser `favicon.svg` fristående som
+`image/svg+xml` och då är strikt: två bindestreck i rad i en kommentar, till
+exempel ett CSS-variabelnamn, gör att hela ikonen vägrar ritas. Byggskriptet
+rastrerar SVG:n inbäddad i en HTML-sida och missar sådant, eftersom
+HTML-parsern är förlåtande.
 
 Valideringsfelen är svenska via `lang/sv/validation.php`. Bara de regler som faktiskt
 används ligger där; `APP_FALLBACK_LOCALE` står kvar på `en` så att en regel som saknas

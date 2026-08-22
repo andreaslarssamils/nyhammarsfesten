@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nyhammarsfesten">
+  <title>Nyhammarsfesten</title>
+  <!-- Maskoten från affischen, förenklad till platta former. Färgerna är
+       designsystemets navy, cream, gold och ink. (Variabelnamnen skrivs utan
+       sina inledande bindestreck: XML tillåter inte två bindestreck i rad
+       inuti en kommentar, och webbläsaren vägrar då rita hela filen.)
+       16 px-rutan i favicon.ico ritas ännu enklare — se resources/ikoner/.
+       Bygg om .ico och apple-touch-ikonen: bash resources/ikoner/bygg-ikoner.sh -->
+  <rect width="64" height="64" rx="12" fill="#1A3B57"/>
+
+  <g stroke="#0E1E2E" stroke-width="1.6" stroke-linejoin="round">
+    <!-- Öron -->
+    <circle cx="13.5" cy="31" r="7.6" fill="#EFE9D6"/>
+    <circle cx="50.5" cy="31" r="7.6" fill="#EFE9D6"/>
+    <circle cx="13.5" cy="31" r="3.6" fill="#C9A882" stroke="none"/>
+    <circle cx="50.5" cy="31" r="3.6" fill="#C9A882" stroke="none"/>
+
+    <!-- Ansikte -->
+    <circle cx="32" cy="32" r="15.5" fill="#8B6B4A"/>
+
+    <!-- Pälsmössan: cirkelsegment över hjässan plus tofsar i kanten -->
+    <path d="M18.2 25A15.5 15.5 0 0 1 45.8 25Z" fill="#EFE9D6"/>
+    <g fill="#EFE9D6" stroke="none">
+      <circle cx="19.5" cy="25.4" r="3.4"/>
+      <circle cx="26" cy="26.4" r="3.6"/>
+      <circle cx="32" cy="26.8" r="3.7"/>
+      <circle cx="38" cy="26.4" r="3.6"/>
+      <circle cx="44.5" cy="25.4" r="3.4"/>
+    </g>
+
+    <!-- Nosparti -->
+    <ellipse cx="32" cy="41.5" rx="9.6" ry="6.2" fill="#C9A882"/>
+  </g>
+
+  <!-- Ögon och mun -->
+  <g fill="#0E1E2E">
+    <circle cx="25.6" cy="33.4" r="2.7"/>
+    <circle cx="38.4" cy="33.4" r="2.7"/>
+  </g>
+  <path d="M27.4 40.6Q32 45.4 36.6 40.6" fill="none" stroke="#0E1E2E" stroke-width="1.9" stroke-linecap="round"/>
+
+  <!-- Affischens femuddiga stjärna, samma form som stjärnfältet i styles.css -->
+  <path transform="translate(52.5 52.5) scale(0.9)" fill="#F0A848"
+        d="M0-10L2.35-3.24 9.51-3.09 3.8 1.24 5.88 8.09 0 4-5.88 8.09-3.8 1.24-9.51-3.09-2.35-3.24Z"/>
+</svg>
