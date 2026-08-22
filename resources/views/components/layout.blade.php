@@ -17,6 +17,11 @@
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:image" content="{{ asset('assets/apa.png') }}">
 
+<!-- Maskoten som ikon. .ico först för webbläsare utan SVG-stöd, .svg för resten. -->
+<link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32">
+<link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;900&family=Bagel+Fat+One&display=swap" rel="stylesheet">

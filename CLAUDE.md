@@ -122,6 +122,20 @@ enda som webben läser. Originalen på flera MB ligger i
 varken serveras eller hamnar i repohistoriken. Nya tröjbilder körs genom
 `cwebp -q 80 -resize 600 0 in.png -o ut.webp`.
 
+Ikoner: `public/favicon.svg` är källan till allt utom 16 px-rutan, som ritas
+enklare i `resources/ikoner/favicon-16.svg` — apan tappar stjärna och mun och
+fyller rutan hårdare, annars blir den gröt. `resources/ikoner/bygg-ikoner.sh`
+rastrerar båda med headless Chrome (macOS har varken ImageMagick eller
+rsvg-convert, och `sips` kan inte skriva .ico) och packar `public/favicon.ico`
+med 16/32/48 px plus `public/apple-touch-icon.png` i 180 px — fyrkantig och
+ogenomskinlig, eftersom iOS rundar hörnen själv.
+
+Skriptet körs lokalt, aldrig i drift: `.ico` och `.png` ligger i git och `deploy.sh`
+hämtar dem med koden. Ändrar du en SVG måste du alltså köra om skriptet och
+committa resultatet — `FaviconTest` kontrollerar att layoutens länkar pekar på
+filer som finns och att .ico:n har en giltig rubrik, inte att den är i synk med
+källan.
+
 Valideringsfelen är svenska via `lang/sv/validation.php`. Bara de regler som faktiskt
 används ligger där; `APP_FALLBACK_LOCALE` står kvar på `en` så att en regel som saknas
 ger läsbar engelska i stället för den råa nyckeln `validation.xxx`.
