@@ -95,3 +95,52 @@
     model.addEventListener('change', sync);
     sync();
 })();
+
+// Klippet på huvudakten. autoplay-attributet sitter medvetet inte i markupen: det
+// hade startat uppspelningen innan den här koden hunnit läsa mediefrågan, och
+// @media (prefers-reduced-motion) i styles.css kan inte stoppa en video — bara
+// animationer och övergångar.
+//
+// Uppspelningen knyts till att klippet syns, inte till sidladdningen. Sektionen
+// ligger långt under vikningen, och Chrome pausar ett ljudlöst klipp som spelas
+// utanför vyn — men startar det inte igen när man scrollar tillbaka, eftersom
+// autoplay-attributet saknas. Utan observatören står klippet alltså stilla för
+// nästan alla besökare. Att pausa på vägen ut sparar dessutom batteri och data.
+(function () {
+    var klipp = document.getElementById('videoKlipp');
+    if (!klipp) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var pausadAvObservator = false;
+
+    var observator = new IntersectionObserver(function (traffar) {
+        traffar.forEach(function (traff) {
+            if (!traff.isIntersecting) {
+                // pause() på ett redan pausat klipp ger ingen händelse — flaggan
+                // sätts bara när en faktiskt är på väg, annars blir den kvar och
+                // äter besökarens nästa tryck på pausknappen.
+                pausadAvObservator = !klipp.paused;
+                klipp.pause();
+                return;
+            }
+            // play() avvisas i strömsparläge och i webbläsare som nekar automatisk
+            // uppspelning. Då står klippet still med sina kontroller, vilket är rätt
+            // utfall — felet ska inte hamna i konsolen som ett trasigt löfte.
+            var spela = klipp.play();
+            if (spela && spela.catch) spela.catch(function () {});
+        });
+    }, { threshold: 0.35 });
+
+    // Pausar besökaren själv ska klippet förbli pausat. Utan det här startar
+    // observatören om det så fort man scrollat bort och tillbaka, och pausknappen
+    // blir verkningslös — vilket är hela poängen med att den finns. Flaggan
+    // nollställs inne i lyssnaren, inte efter pause(): händelsen levereras som en
+    // köad uppgift, så en nollställning på raden efter hade hunnit före.
+    klipp.addEventListener('pause', function () {
+        if (!pausadAvObservator) observator.disconnect();
+        pausadAvObservator = false;
+    });
+
+    observator.observe(klipp);
+})();

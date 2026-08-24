@@ -74,6 +74,21 @@ Några fält styr beteende, inte bara text:
   `storage/app/private/band-original/` (gitignorerat via `storage/app/private/.gitignore`)
   och optimeras med samma `cwebp`-rad som tröjbilderna. `LineupTest` kontrollerar att
   varje angiven bildfil finns.
+- `video.fil` är valfri och pekar på en mp4 under `public/`. Tom (`null`, nyckeln
+  utelämnad, hela `video`-arrayen borta) döljer sektionen mellan lineupen och
+  programmet helt — samma platshållarkonvention som `tickets.forkop_url`.
+  `video.poster` är också valfri: utan den hängs `#t=0.1` på `<source>`, vilket får
+  webbläsaren att måla första bildrutan i stället (`preload="metadata"` hämtar annars
+  ingen ruta och spelaren står svart). Klippet startas från `site.js`, inte med
+  `autoplay` i markupen — attributet hade spelat i gång innan JS hunnit läsa
+  `prefers-reduced-motion`, och `@media (prefers-reduced-motion)` i CSS kan inte
+  stoppa en video. Starten sker via en `IntersectionObserver` när klippet syns:
+  sektionen ligger under vikningen, och Chrome pausar ett ljudlöst klipp som spelas
+  utanför vyn utan att starta det igen — ett `play()` vid sidladdning ger alltså ett
+  stillastående klipp för nästan alla besökare. `controls` sitter kvar oavsett:
+  rörlig bild som startar av sig själv och håller på längre än fem sekunder måste gå
+  att pausa, och utan JS blir det en vanlig klick-för-att-spela-spelare. `VideoTest`
+  kontrollerar att angivna filer finns och att båda lägena renderar rätt.
 - `shirt.colors` är nästlad: `['label' => 'Svart', 'bild' => 'assets/svart-nf.webp']`.
   Bilden visas som färgprov i bokningsformuläret. En ny färg behöver alltså både
   etikett och bildfil — inget mer, ingen ny CSS. `ShirtOrderTest` kontrollerar att

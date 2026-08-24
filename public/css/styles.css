@@ -242,6 +242,25 @@ section, footer { scroll-margin-top: 132px; }
 .c-gold { color: var(--gold); } .c-olive { color: var(--olive); }
 .lineup-note { margin: 30px 0 0; font-size: 14px; font-weight: 500; color: var(--cream-55); }
 
+/* Videoklipp — huvudakten i rörelse, mellan lineupen och programmet */
+.video-sektion { background: var(--navy-deep); color: var(--cream); }
+/* Ingen aspect-ratio: klippet kan lika gärna vara stående (filmat på telefon) som
+   liggande. Med width och height på auto behåller <video> sina egna proportioner
+   och låter maxvärdena avgöra — max-width tar det liggande fallet, max-height i vh
+   hindrar ett stående klipp från att äta hela vyporten. min() behövs eftersom ett
+   naket max-width: 720px spiller utanför skärmkanten på mobil. */
+.video-klipp {
+    display: block; margin: 0 auto;
+    width: auto; height: auto; max-width: min(100%, 720px); max-height: 70vh;
+    background: var(--navy); border: 3px solid var(--ink);
+}
+/* Bildtexten centreras i stället för att vänsterställas: klippets bredd bestäms av
+   filens egna proportioner, så vänsterkanten går inte att träffa i CSS. Centrerad
+   delar de samma mittlinje oavsett vilket klipp som ligger i config. */
+.video-figur { margin: 0 auto; max-width: min(100%, 720px); }
+.video-text { margin: 22px 0 0; font-size: 15px; font-weight: 500; color: var(--cream-70); text-align: center; }
+.video-text b { color: var(--gold); font-weight: 900; }
+
 /* Program */
 .program { background: var(--cream); color: var(--navy); }
 .program .wrap { max-width: 860px; }

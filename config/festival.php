@@ -21,7 +21,7 @@ return [
         'phone'     => '070-213 13 72',
         'sponsor'   => 'info@nyhammarsfesten.se',
         'facebook'  => '#',
-        'instagram' => '#',
+        'instagram' => 'https://www.instagram.com/musik.i.obygden/',
     ],
 
     'ticker' => '26 september 2026 ✶ Nyhammar, Dalarna ✶ Vuxna 100 kr ✶ Ungdomar gratis ✶ Musik hela dagen ✶ Fika & food truck ✶ Hela familjen ✶',
@@ -48,9 +48,31 @@ return [
         ['name' => 'Mattias Bredenberg Hellre Bipolär Än Populär',
             'meta' => '', 'size' => 4, 'color' => 'olive', 'bild' => null],
         ['name' => 'Sped Up',                        'meta' => 'Borlänge', 'size' => 4, 'color' => null,    'bild' => null],
-        ['name' => 'Khar',                        'meta' => 'Sala', 'size' => 4, 'color' => 'olive',  'bild' => null],
+        ['name' => 'Khar',                        'meta' => 'Avesta', 'size' => 4, 'color' => 'olive',  'bild' => null],
         ['name' => 'PJ Myers',                        'meta' => 'Australien/Ludvika', 'size' => 2, 'color' => 'gold',  'bild' => null],
-        ['name' => 'Finally',                        'meta' => 'Sala', 'size' => 1, 'color' => null,  'bild' => null],
+    ],
+
+    /*
+     |--------------------------------------------------------------------------
+     | Video — kort klipp mellan lineup och program
+     |--------------------------------------------------------------------------
+     | fil: valfri sökväg under public/, t.ex. 'assets/erik-ivarsson.mp4'. null —
+     | eller ingen nyckel alls — döljer hela sektionen, samma platshållarkonvention
+     | som tickets.forkop_url och lineup[].bild.
+     |
+     | poster: valfri stillbild. Utan den hänger #t=0.1 på källan i stället, och
+     | webbläsaren målar första rutan själv — då behövs ingen posterfil.
+     |
+     | Klippet spelas ljudlöst och loopat, så ett ljudspår tar bara plats:
+     |   ffmpeg -i in.mp4 -an -movflags +faststart public/assets/klipp.mp4
+     | Filnamn i gemener utan å/ä/ö: driften är Linux och skiftlägeskänslig.
+     */
+    'video' => [
+        'fil'    => 'assets/erik-ivarsson.mp4',
+        'poster' => 'assets/erik-ivarsson.webp',
+        'tag'    => 'Konstcyklist Erik Ivarsson',
+        'title'  => 'Konstcyklist Erik Ivarsson',
+        'text'   => 'Ett smakprov på femton sekunder. Han står på stora scenen klockan 16:00.',
     ],
 
     /*
@@ -117,7 +139,7 @@ return [
      */
     'shirt' => [
         'price'        => 200,
-        'deadline'     => '2026-09-06',
+        'deadline'     => '2026-09-02',
         'payment'      => 'prepay',       // 'prepay' eller 'on_pickup'
         'swish_number' => '123 456 78 90',
 
