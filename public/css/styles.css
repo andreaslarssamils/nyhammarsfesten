@@ -242,8 +242,11 @@ section, footer { scroll-margin-top: 132px; }
 .c-gold { color: var(--gold); } .c-olive { color: var(--olive); }
 .lineup-note { margin: 30px 0 0; font-size: 14px; font-weight: 500; color: var(--cream-55); }
 
-/* Videoklipp — huvudakten i rörelse, mellan lineupen och programmet */
+/* Videoklipp — huvudakten i rörelse, mellan banderollen och lineupen */
 .video-sektion { background: var(--navy-deep); color: var(--cream); }
+/* Etikettraden är vänsterställd i lineupen, där den inleder en lång lista. Här står
+   den över ett ensamt, centrerat klipp och ska dela mittlinje med det. */
+.video-sektion .lineup-head { justify-content: center; }
 /* Ingen aspect-ratio: klippet kan lika gärna vara stående (filmat på telefon) som
    liggande. Med width och height på auto behåller <video> sina egna proportioner
    och låter maxvärdena avgöra — max-width tar det liggande fallet, max-height i vh

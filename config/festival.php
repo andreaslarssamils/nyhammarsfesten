@@ -54,7 +54,7 @@ return [
 
     /*
      |--------------------------------------------------------------------------
-     | Video — kort klipp mellan lineup och program
+     | Video — kort klipp mellan banderollen och lineupen
      |--------------------------------------------------------------------------
      | fil: valfri sökväg under public/, t.ex. 'assets/erik-ivarsson.mp4'. null —
      | eller ingen nyckel alls — döljer hela sektionen, samma platshållarkonvention

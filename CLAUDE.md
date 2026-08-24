@@ -75,8 +75,8 @@ Några fält styr beteende, inte bara text:
   och optimeras med samma `cwebp`-rad som tröjbilderna. `LineupTest` kontrollerar att
   varje angiven bildfil finns.
 - `video.fil` är valfri och pekar på en mp4 under `public/`. Tom (`null`, nyckeln
-  utelämnad, hela `video`-arrayen borta) döljer sektionen mellan lineupen och
-  programmet helt — samma platshållarkonvention som `tickets.forkop_url`.
+  utelämnad, hela `video`-arrayen borta) döljer sektionen mellan banderollen och
+  lineupen helt — samma platshållarkonvention som `tickets.forkop_url`.
   `video.poster` är också valfri: utan den hängs `#t=0.1` på `<source>`, vilket får
   webbläsaren att måla första bildrutan i stället (`preload="metadata"` hämtar annars
   ingen ruta och spelaren står svart). Klippet startas från `site.js`, inte med
