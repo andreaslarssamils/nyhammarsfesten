@@ -88,7 +88,7 @@ return [
         ['time' => '16:00', 'act' => 'Konstcyklist Erik Ivarsson', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
         ['time' => '17:00', 'act' => 'PJ Myers', 'stage' => 'Stora scenen', 'stage_class' => null],
         ['time' => '18:00', 'act' => 'SpedUp', 'stage' => 'Stora scenen', 'stage_class' => null],
-        ['time' => '18:00', 'act' => 'Ritzy Rock', 'stage' => 'Stora scenen', 'stage_class' => 'alt'],
+        ['time' => '19:00', 'act' => 'Ritzy Rock', 'stage' => 'Stora scenen', 'stage_class' => 'alt'],
         ['time' => '20:00', 'act' => 'Walls Of Glass', 'stage' => 'Stora scenen', 'stage_class' => null],
         ['time' => '21:15', 'act' => 'Finally', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
         ['time' => '22:30', 'act' => 'Trashcan Band', 'stage' => 'Stora scenen', 'stage_class' => 'hot'],
