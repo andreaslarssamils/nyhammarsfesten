@@ -3,6 +3,7 @@
     @include('partials.hero')
     @include('partials.ticker')
     @include('partials.video')
+    @include('partials.forelasning')
     @include('partials.artister')
     @include('partials.program')
     @include('partials.biljetter')

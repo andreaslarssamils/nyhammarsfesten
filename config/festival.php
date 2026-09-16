@@ -20,7 +20,7 @@ return [
         'email'     => 'info@nyhammarsfesten.se',
         'phone'     => '070-213 13 72',
         'sponsor'   => 'info@nyhammarsfesten.se',
-        'facebook'  => '#',
+        'facebook'  => 'https://www.facebook.com/events/1120317307325348/?post_id=1120321273991618&acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22home%22%7D%2C%7B%22mechanism%22%3A%22footer_attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D',
         'instagram' => 'https://www.instagram.com/musik.i.obygden/',
     ],
 
@@ -46,7 +46,7 @@ return [
         ['name' => 'Ritzy Rock',                    'meta' => 'Avesta', 'size' => 3, 'color' => null,  'bild' => null],
         ['name' => 'Dödens Gudbarn',              'meta' => 'Ludvika', 'size' => 3, 'color' => 'gold',  'bild' => null],
         ['name' => 'Mattias Bredenberg Hellre Bipolär Än Populär',
-            'meta' => '', 'size' => 4, 'color' => 'olive', 'bild' => null],
+            'meta' => 'Nyhammar', 'size' => 4, 'color' => 'olive', 'bild' => null],
         ['name' => 'Sped Up',                        'meta' => 'Borlänge', 'size' => 4, 'color' => null,    'bild' => null],
         ['name' => 'Khar',                        'meta' => 'Avesta', 'size' => 4, 'color' => 'olive',  'bild' => null],
         ['name' => 'PJ Myers',                        'meta' => 'Australien/Ludvika', 'size' => 2, 'color' => 'gold',  'bild' => null],
@@ -73,6 +73,19 @@ return [
         'tag'    => 'Konstcyklist Erik Ivarsson',
         'title'  => 'Konstcyklist Erik Ivarsson',
         'text'   => 'Ett smakprov på femton sekunder. Han står på stora scenen klockan 16:00.',
+    ],
+
+    /*
+     |--------------------------------------------------------------------------
+     | Föreläsning — presentationsruta mellan videoklippet och lineupen
+     |--------------------------------------------------------------------------
+     | text: valfri. null — eller ingen nyckel alls — döljer hela sektionen, samma
+     | platshållarkonvention som video.fil och tickets.forkop_url.
+     */
+    'lecture' => [
+        'tag'   => 'Mattias Bredenberg',
+        'title' => 'Hellre bipolär än populär',
+        'text'  => 'En föreläsning om psykisk ohälsa — framförd genom musikens mörkaste toner. Med smärtsamt personliga berättelser, svart humor och sång tar Mattias publiken med på en resa genom det som skaver, brister och ibland går sönder. Ett program som berör på djupet och dröjer sig kvar långt efteråt.',
     ],
 
     /*
@@ -127,9 +140,18 @@ return [
 
     'sponsors' => [
         'lead' => 'Festivalen görs möjlig av bygdens hjältar. Vill ditt företag synas här?',
-        // ['name' => 'Företaget AB', 'logo' => 'sponsors/foretaget.svg', 'url' => 'https://...']
-        // Tomma platser fylls ut automatiskt upp till fyra.
-        'items' => [],
+        // Visas ovanför raden, bara när items inte är tom.
+        'hint' => 'Klicka gärna på våra sponsorer ✶',
+        // ['name' => 'Företaget AB', 'url' => 'https://...']
+        // Ren text, ingen logga. Tomma platser fylls ut automatiskt upp till fyra.
+        'items' => [
+            ['name' => 'Ica Grangärde', 'url' => 'https://www.facebook.com/icanaragrangarde'],
+            ['name' => 'Logmax AB', 'url' => 'https://logmax.com/'],
+            ['name' => 'Re-Laxsjöns Fiske', 'url' => 'https://larsstromsund.wixsite.com/relaxsjon'],
+            ['name' => 'Dala Destroi Records', 'url' => 'https://www.hotellbrunnsvik.se/'],
+            ['name' => 'AB T&S-gruppen Sverige', 'url' => 'https://www.facebook.com/groups/327134991900890/'],
+            ['name' => 'Hotel & Konferens Brunsvik', 'url' => 'https://www.hotellbrunnsvik.se/'],
+        ],
     ],
 
     /*
