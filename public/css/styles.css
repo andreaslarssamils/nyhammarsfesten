@@ -273,6 +273,7 @@ section, footer { scroll-margin-top: 132px; }
 /* Program */
 .program { background: var(--cream); color: var(--navy); }
 .program .wrap { max-width: 860px; }
+.program .h2 { margin-bottom: 10px; }
 .program-lead { margin: 0 0 40px; font-size: 16px; font-weight: 500; }
 .prow { display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap; padding: 16px 0; border-bottom: 2px dashed var(--navy-40); }
 .prow:last-child { border-bottom: none; }
