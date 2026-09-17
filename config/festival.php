@@ -148,7 +148,7 @@ return [
             ['name' => 'Ica Grangärde', 'url' => 'https://www.facebook.com/icanaragrangarde'],
             ['name' => 'Logmax AB', 'url' => 'https://logmax.com/'],
             ['name' => 'Re-Laxsjöns Fiske', 'url' => 'https://larsstromsund.wixsite.com/relaxsjon'],
-            ['name' => 'Dala Destroi Records', 'url' => 'https://www.hotellbrunnsvik.se/'],
+            ['name' => 'Dala Destroi Records', 'url' => 'https://www.facebook.com/DDRskivor/'],
             ['name' => 'AB T&S-gruppen Sverige', 'url' => 'https://www.facebook.com/groups/327134991900890/'],
             ['name' => 'Hotel & Konferens Brunsvik', 'url' => 'https://www.hotellbrunnsvik.se/'],
         ],
