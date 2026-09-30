@@ -6,6 +6,17 @@ use Tests\TestCase;
 
 class VideoTest extends TestCase
 {
+    /**
+     * Testerna gäller festivalsidan. Tacksidan (festival.avslutad) ritar varken
+     * förköp, video, föreläsning eller den länkade lineupen.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config(['festival.avslutad' => false]);
+    }
+
     public function test_videons_filer_pekar_pa_filer_som_finns(): void
     {
         // Samlas i en lista i stället för en assertion per fil: annars gör testet

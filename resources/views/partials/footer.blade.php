@@ -1,6 +1,11 @@
 <footer id="kontakt" class="footer stjarnfalt">
   <div class="wrap">
-    <h2 class="display footer-title">Vi ses där ✶</h2>
+    @if (config('festival.avslutad'))
+      <h2 class="display footer-title">{{ config('festival.tack.nasta_ar_title') }}</h2>
+      <p class="footer-lead">{{ config('festival.tack.nasta_ar_text') }}</p>
+    @else
+      <h2 class="display footer-title">Vi ses där ✶</h2>
+    @endif
     <div class="contact-row">
       <div class="contact-col">
         <span class="contact-label">Mejl</span>

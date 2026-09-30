@@ -11,6 +11,39 @@ return [
     'date'       => '2026-09-26T12:00:00+02:00',
     'date_label' => ['dag' => 'Lördag', 'datum' => '26', 'manad' => 'September'],
 
+    /*
+     |--------------------------------------------------------------------------
+     | Avslutad — växlar startsidan mellan festivalsida och tacksida
+     |--------------------------------------------------------------------------
+     | true visar tacksidan (texterna under 'tack' nedan), false den vanliga
+     | festivalsidan med program, biljetter och t-shirt. Inför nästa år: uppdatera
+     | datum, lineup och program och sätt tillbaka false.
+     */
+    'avslutad' => true,
+
+    'tack' => [
+        'badge'          => 'Tack för i år ✶ Vi ses nästa år',
+        'lead'           => 'Tack till alla som kom till Folkets Hus den 26 september och gjorde dagen till något alldeles extra. Vilken fest!',
+        'ticker'         => 'Tack Nyhammar ✶ Tack alla artister ✶ Tack alla sponsorer ✶ Tack alla som hjälpte till ✶ Vi ses nästa år ✶',
+
+        'artister_title' => 'Tack alla artister',
+        'artister_text'  => 'Ni fyllde Folkets Hus med musik från lunch till långt efter midnatt. Stort tack till varenda en som stod på scen.',
+
+        // Rutor i den mörka sektionen efter artisterna. Lägg till eller ta bort fritt.
+        'medverkande_title' => 'Tack alla medverkande',
+        'medverkande'       => [
+            ['title' => 'Alla som hjälpte till', 'text' => 'Ideella som byggde, bar, skötte entrén, ljudet och fikat. Utan er ingen fest.'],
+            ['title' => 'Food truck & fika',     'text' => 'Tack för att ni höll hela byn mätt och glad hela dagen.'],
+            ['title' => 'Publiken',              'text' => 'Ni som kom, dansade, sjöng med och stannade kvar. Det är ni som gör festen.'],
+        ],
+
+        'sponsorer_title' => 'Tack alla sponsorer',
+        'sponsorer_text'  => 'Nyhammarsfesten hade inte blivit av utan er. Tack för att ni trodde på musik i obygden!',
+
+        'nasta_ar_title' => 'Vi ses nästa år ✶',
+        'nasta_ar_text'  => 'Vi hoppas att vi ses igen nästa år! Datum och nyheter kommer på Facebook och Instagram.',
+    ],
+
     'venue' => [
         'name'    => 'Folkets Hus',
         'address' => 'Folkets Hus väg 12, 770 14 Nyhammar',

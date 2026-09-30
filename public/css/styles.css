@@ -270,6 +270,28 @@ section, footer { scroll-margin-top: 132px; }
 .forelasning .h2 { max-width: 780px; margin: 0 auto; }
 .forelasning-text { max-width: 640px; margin: 22px auto 0; font-size: 16px; font-weight: 500; color: var(--cream-70); }
 
+/* Tacksidan — rubrik och ingress ovanför lineupen, och rutorna för de medverkande.
+   Medverkande-sektionen delar den mörka, centrerade rytmen med föreläsningen. */
+.tack-rubrik { color: var(--olive); }
+.tack-text { max-width: 640px; margin: 18px 0 30px; font-size: 16px; font-weight: 500; color: var(--cream-70); }
+/* På tacksidan är akterna div:ar, inte länkar — ingen hovring som lovar ett klick. */
+div.act:hover, div.act:hover .act-name { color: inherit; transform: none; }
+div.act:hover .act-name.c-gold { color: var(--gold); }
+div.act:hover .act-name.c-olive { color: var(--olive); }
+div.act:hover .act-bild { border-color: var(--cream-30); }
+.medverkande { background: var(--navy); color: var(--cream); text-align: center; }
+.medverkande .h2 { color: var(--olive); }
+.tack-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; margin-top: 40px; text-align: left; }
+.tack-kort {
+    background: var(--navy-deep); border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--gold);
+    padding: 28px 26px;
+}
+.tack-kort:nth-child(even) { transform: rotate(1deg); }
+.tack-kort:nth-child(odd) { transform: rotate(-1deg); }
+.tack-kort-titel { margin: 0 0 10px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 24px; text-transform: uppercase; color: var(--gold); }
+.tack-kort p { margin: 0; font-size: 15px; font-weight: 500; color: var(--cream-70); }
+.footer-lead { margin: -24px 0 0; max-width: 620px; font-size: 18px; font-weight: 500; color: var(--cream-70); }
+
 /* Program */
 .program { background: var(--cream); color: var(--navy); }
 .program .wrap { max-width: 860px; }

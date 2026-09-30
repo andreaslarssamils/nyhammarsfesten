@@ -6,6 +6,17 @@ use Tests\TestCase;
 
 class ForkopTest extends TestCase
 {
+    /**
+     * Testerna gäller festivalsidan. Tacksidan (festival.avslutad) ritar varken
+     * förköp, video, föreläsning eller den länkade lineupen.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config(['festival.avslutad' => false]);
+    }
+
     public function test_forkopslanken_renderas_pa_alla_tre_stallena(): void
     {
         config(['festival.tickets.forkop_url' => 'https://exempel.test/biljetter']);

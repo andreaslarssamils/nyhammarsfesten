@@ -6,6 +6,17 @@ use Tests\TestCase;
 
 class LectureTest extends TestCase
 {
+    /**
+     * Testerna gäller festivalsidan. Tacksidan (festival.avslutad) ritar varken
+     * förköp, video, föreläsning eller den länkade lineupen.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config(['festival.avslutad' => false]);
+    }
+
     public function test_sektionen_visas_nar_text_ar_angiven(): void
     {
         config(['festival.lecture' => [

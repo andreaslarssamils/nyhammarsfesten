@@ -6,6 +6,17 @@ use Tests\TestCase;
 
 class LineupTest extends TestCase
 {
+    /**
+     * Testerna gäller festivalsidan. Tacksidan (festival.avslutad) ritar varken
+     * förköp, video, föreläsning eller den länkade lineupen.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config(['festival.avslutad' => false]);
+    }
+
     public function test_varje_band_med_bild_pekar_pa_en_fil_som_finns(): void
     {
         // Samlas i en lista i stället för en assertion per band: annars gör testet

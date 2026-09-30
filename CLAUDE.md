@@ -53,6 +53,12 @@ ingen kod, inga nya vyer.
 
 Några fält styr beteende, inte bara text:
 
+- `avslutad` växlar startsidan. `true` ger tacksidan efter festivalen
+  (`partials/tack/*`, texterna i `tack`-arrayen): hero utan nedräkning och förköp,
+  lineupen som tack utan länkar, medverkande, sponsorer utan "Bli sponsor" och en
+  sidfot med "Vi ses nästa år". `false` ger festivalsidan. `ticker` och `footer`
+  delas mellan lägena. Tester som gäller festivalsidan sätter `avslutad => false`
+  i `setUp()`, och `TackTest` täcker tacksidan.
 - `date` (ISO 8601 med tidszon) matas till `#countdown[data-target]` och driver
   nedräkningen i `site.js`.
 - `tickets.forkop_url` är förköpslänken till Billetto och renderas av komponenten

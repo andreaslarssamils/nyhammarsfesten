@@ -1,6 +1,8 @@
+@php $text ??= config('festival.ticker'); @endphp
+
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>{{ config('festival.ticker') }}</span>
-    <span>{{ config('festival.ticker') }}</span>
+    <span>{{ $text }}</span>
+    <span>{{ $text }}</span>
   </div>
 </div>

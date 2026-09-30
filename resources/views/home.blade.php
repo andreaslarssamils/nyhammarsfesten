@@ -1,4 +1,13 @@
 <x-layout>
+  @if (config('festival.avslutad'))
+    @include('partials.tack.nav')
+    @include('partials.tack.hero')
+    @include('partials.ticker', ['text' => config('festival.tack.ticker')])
+    @include('partials.tack.artister')
+    @include('partials.tack.medverkande')
+    @include('partials.tack.sponsorer')
+    @include('partials.footer')
+  @else
     @include('partials.nav')
     @include('partials.hero')
     @include('partials.ticker')
@@ -12,4 +21,5 @@
     @include('partials.faq')
     @include('partials.sponsorer')
     @include('partials.footer')
+  @endif
 </x-layout>
